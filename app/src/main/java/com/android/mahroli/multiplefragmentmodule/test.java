@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.mahroli.multiplefragmentmodule.profile.BasicInfo;
+
 /**
  * Created by jivraj.singh on 17-12-2015.
  */
@@ -29,7 +31,7 @@ public class test extends AppCompatActivity implements Top_Fragment.textEntered,
         one.setOnClickListener(this);
         two.setOnClickListener(this);
         three.setOnClickListener(this);
-        Top_Fragment frg=new Top_Fragment();
+        BasicInfo frg=new BasicInfo();
         frg2=new Bottom_Fragment();
         FragmentManager manager=getSupportFragmentManager();
         transaction=manager.beginTransaction();
