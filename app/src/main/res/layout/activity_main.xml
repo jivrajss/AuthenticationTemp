@@ -1,64 +1,58 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    tools:context=".test"
-    android:background="@android:color/black">
-
-    <LinearLayout
-        android:background="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:id="@+id/TabLayout"
-        android:weightSum="3"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/FirstTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="One"
-            android:gravity="center"
-            android:layout_weight="1"/>
-        <TextView
-            android:id="@+id/SecondTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Two"
-            android:gravity="center"
-            android:layout_weight="1"/>
-        <TextView
-            android:id="@+id/ThirdTextView"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Three"
-            android:layout_weight="1"/>
-    </LinearLayout>
-    <FrameLayout
-        android:layout_below="@+id/TabLayout"
-        android:id="@+id/My_Container_1_ID"
-        android:layout_width="fill_parent"
-        android:layout_height="200dp"
-        android:background="@android:color/holo_green_light">
-    </FrameLayout>
+        android:layout_height="wrap_content"
+        tools:context=".ProfileActivity"
+        android:background="@android:color/black">
 
-    <FrameLayout
-        android:id="@+id/My_Container_2_ID"
-        android:layout_width="fill_parent"
-        android:layout_height="150dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/My_Container_1_ID"
-        android:background="@android:color/holo_orange_light" >
-    </FrameLayout>
+        <ImageView
+            android:background="#1970c0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:id="@+id/TabLayout"
+            android:src="@mipmap/profile_step_one"/>
+        <FrameLayout
+            android:layout_below="@+id/TabLayout"
+            android:id="@+id/My_Container_1_ID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_light">
+        </FrameLayout>
 
-    <FrameLayout
-        android:id="@+id/My_Container_3_ID"
-        android:layout_width="fill_parent"
-        android:layout_height="150dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/My_Container_2_ID"
-        android:background="@android:color/holo_purple" >
-    </FrameLayout>
+        <ImageView
+            android:background="#1970c0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/TabLayout2"
+            android:layout_below="@+id/My_Container_1_ID"
+            android:src="@mipmap/profile_step_two"/>
 
-</RelativeLayout>
+        <FrameLayout
+            android:id="@+id/My_Container_2_ID"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TabLayout2"
+            android:background="@android:color/holo_orange_light" >
+        </FrameLayout>
+        <ImageView
+            android:background="#1970c0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/TabLayout3"
+            android:layout_below="@+id/My_Container_2_ID"
+            android:src="@mipmap/profile_step_three"/>
+        <FrameLayout
+            android:id="@+id/My_Container_3_ID"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/TabLayout3"
+            android:background="@android:color/holo_purple" >
+        </FrameLayout>
+
+    </RelativeLayout>
+    </ScrollView>
