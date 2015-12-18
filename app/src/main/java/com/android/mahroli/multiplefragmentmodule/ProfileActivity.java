@@ -43,7 +43,7 @@ public class ProfileActivity extends AppCompatActivity implements Top_Fragment.t
         transaction = manager.beginTransaction();
         transaction.add(R.id.My_Container_1_ID, new BasicInfo(), "Frag_Top_tag");
         transaction.add(R.id.My_Container_2_ID, new BasicInfo(), "Frag_middle_tag");
-        transaction.add(R.id.My_Container_3_ID, new BasicInfo(), "Frag_Bottom_tag");
+        transaction.add(R.id.My_Container_3_ID, new DummyFragment(), "Frag_Bottom_tag");
         transaction.commit();
     }
 
