@@ -1,6 +1,9 @@
 package com.android.mahroli.multiplefragmentmodule;
 
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -8,8 +11,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.provider.Settings;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.android.mahroli.multiplefragmentmodule.location.LocationAddress;
 import com.android.mahroli.multiplefragmentmodule.profile.BasicInfo;
+import com.android.mahroli.multiplefragmentmodule.service.AppLocationService;
 
 /**
  * Created by jivraj.singh on 17-12-2015.
@@ -18,14 +36,17 @@ public class ProfileActivity extends AppCompatActivity implements Top_Fragment.t
     String value;
     //    boolean check=false;
     Bottom_Fragment frg2;
-
     FragmentTransaction transaction;
+    private LocationAddress mAddress;
+    private final static String TAG = ProfileActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        mAddress = new LocationAddress(ProfileActivity.this);
+        mAddress.showLocation();
+        mAddress.showAddress(new GeocoderHandler());
         findViewById(R.id.TabLayout).setOnClickListener(this);
         findViewById(R.id.TabLayout2).setOnClickListener(this);
         findViewById(R.id.TabLayout3).setOnClickListener(this);
@@ -52,6 +73,24 @@ public class ProfileActivity extends AppCompatActivity implements Top_Fragment.t
         }
     }
 
+    public static class GeocoderHandler extends Handler {
+        @Override
+        public void handleMessage(Message message) {
+            String locationAddress;
+            switch (message.what) {
+                case 1:
+                    Bundle bundle = message.getData();
+                    locationAddress = bundle.getString("address");
+                    break;
+                default:
+                    locationAddress = null;
+            }
+            Log.d(TAG, "Handler---" + locationAddress);
+
+        }
+    }
+
+
     /**
      * Called when a view has been clicked.
      *
@@ -61,21 +100,21 @@ public class ProfileActivity extends AppCompatActivity implements Top_Fragment.t
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.TabLayout:
-                Toast.makeText(this,"One",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "One", Toast.LENGTH_SHORT).show();
                 if (findViewById(R.id.My_Container_1_ID).getVisibility() == View.VISIBLE)
                     findViewById(R.id.My_Container_1_ID).setVisibility(View.GONE);
                 else
                     findViewById(R.id.My_Container_1_ID).setVisibility(View.VISIBLE);
                 break;
             case R.id.TabLayout2:
-                Toast.makeText(this,"Two",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Two", Toast.LENGTH_SHORT).show();
                 if (findViewById(R.id.My_Container_2_ID).getVisibility() == View.VISIBLE)
                     findViewById(R.id.My_Container_2_ID).setVisibility(View.GONE);
                 else
                     findViewById(R.id.My_Container_2_ID).setVisibility(View.VISIBLE);
                 break;
             case R.id.TabLayout3:
-                Toast.makeText(this,"Three",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Three", Toast.LENGTH_SHORT).show();
                 if (findViewById(R.id.My_Container_3_ID).getVisibility() == View.VISIBLE)
                     findViewById(R.id.My_Container_3_ID).setVisibility(View.GONE);
                 else
