@@ -7,9 +7,9 @@
         android:id="@+id/rangebar"
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        custom:tickStart="5"
+        custom:tickStart="1"
         custom:tickInterval="1"
-        custom:tickEnd="10"
+        custom:tickEnd="200"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"/>
 </RelativeLayout>
