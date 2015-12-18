@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="budget_array">
+        <item>Rs 10 Lacs</item>
+        <item>Rs 20 Lacs</item>
+        <item>Rs 30 Lacs</item>
+        <item>Rs 40 Lacs</item>
+        <item>Rs 50 Lacs</item>
+        <item>Rs 60 Lacs</item>
+        <item>Rs 70 Lacs</item>
+        <item>Rs 80 Lacs</item>
+        <item>Rs 90 Lacs</item>
+        <item>Rs 1 Crore</item>
+        <item>Rs 2 Crore</item>
+        <item>Rs 3 Crore</item>
+        <item>Rs 4 Crore</item>
+        <item>Rs 5 Crore</item>
+        <item>\> More than Rs 5 Crore</item>
+    </array>
+</resources>

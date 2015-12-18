@@ -1,15 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/LocationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/prompt_location"
+            android:drawableRight="@mipmap/location_icon"
+            android:drawableEnd="@mipmap/location_icon"
+            android:drawablePadding="5dp"
+            android:imeActionId="@+id/nameId"
+            android:imeActionLabel="@string/action_next"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
 
     <com.appyvet.rangebar.RangeBar
         xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:id="@+id/rangebar"
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
-        custom:tickStart="1"
-        custom:tickInterval="1"
-        custom:tickEnd="200"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        custom:pinRadius="10dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/LocationLayout"
+        custom:tickEnd="14"
+        custom:pinMinFont="15sp"
+        custom:tickInterval="1"
+        custom:tickStart="0" />
 </RelativeLayout>
